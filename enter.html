@@ -1,13 +1,13 @@
 <html>
     <script>
         // define the callAPI function that takes a first name and last name as parameters
-        var callAPI = (License)=>{
+        var callAPI = (Licenseid)=>{
             // instantiate a headers object
             var myHeaders = new Headers();
             // add content type header to object
             myHeaders.append("Content-Type", "application/json");
             // using built in JSON utility package turn object to string and store in a variable
-            var raw = JSON.stringify({"License":License});
+            var raw = JSON.stringify({"License":Licenseid});
             // create a JSON object with parameters for API call and store in a variable
             var requestOptions = {
                 method: 'POST',
@@ -24,6 +24,6 @@
     </script>
     <form>
         Car Number: <input type="text" name="License" id="License"><br>
-        <button name="Submit" id="Submit" onclick="callAPI(document.getElementById('License').value)">Submit</button>
+        <button type="button" id="Submit" onclick="callAPI(document.getElementById('License').value)">Submit</button>
     </form>
 </html>
