@@ -19,7 +19,7 @@
             fetch("https://njxzbm9v9j.execute-api.us-west-2.amazonaws.com/dev", requestOptions)
             .then(response => response.text())
             .then(result => alert(JSON.parse(result).body))
-            .then(response.redirect('index.html'))
+            .then(response => response.redirect('index.html'))
             .catch(error => console.log('error', error));
         }
     </script>
