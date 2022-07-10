@@ -18,13 +18,14 @@
             // make API call with parameters and use promises to get response
             fetch("https://njxzbm9v9j.execute-api.us-west-2.amazonaws.com/dev", requestOptions)
             .then(response => response.text())
-            .then(result => alert(JSON.parse(result).body))
+            .then(result => console.log('Uploaded'))
+            .then(window.location.href = 'index.html')
             .catch(error => console.log('error', error));
         }
     </script>
     <form>
         Car Number: <input type="text" name="License" id="License"><br>
-        <button type="button" id="Submit" onclick="callAPI(document.getElementById('License').value)">Submit</button>
+        <button type="button" id="Submit" onclick="callAPI(document.getElementById('License').value)"><a href="success.html">Submit</a></button>
         <a href="index.html">back</a>
     </form>
 </html>
