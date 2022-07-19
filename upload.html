@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Capture picture from your webcam</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.js"></script>
+    <title>Document</title>
+</head>
 <body>
+    <div id="camera" style="height:auto;width:auto; text-align:left;"></div>
 
-<p>Click on the "Choose photo" button to upload a file:</p>
-
-<a href="index.html">Back</a>
-
+    <!--FOR THE SNAPSHOT-->
+    <input type="button" value="Take pic of number plate" id="btPic" onclick="takeSnapShot()" /> 
+    <p id="snapShot"></p>
+    <a href="index.html">Back</a>
 </body>
+<script>
+    // CAMERA SETTINGS.
+    Webcam.set({
+        width: 220,
+        height: 190,
+        image_format: 'jpeg',
+        jpeg_quality: 100
+    });
+    Webcam.attach('#camera');
+
+    // SHOW THE SNAPSHOT.
+    takeSnapShot = function () {
+        Webcam.snap(function (data_uri) {
+            document.getElementById('snapShot').innerHTML = 
+                '<img src="' + data_uri + '" width="70px" height="50px" />';
+        });
+    }
+</script>
 </html>
